@@ -1,8 +1,7 @@
 '''wht - A Python program that emulates a 'terminal' within a terminal.
-    reynantlno, 2023. 
+    reynantlntno, 2023. 
     https://github.com/reynantlntno/wht
     
-    under my project "gamma".
     btw, this is generally nonsense for now, there is too much work needed here.'''
 
 import os
@@ -11,8 +10,8 @@ import platform
 # import tkinter as tk -- gui? no, cli only.
 
 # wht version
-wht_vers = "1.0.0"
-wht_sapi_vers = "1.0.0" # sub_api, for future development
+wht_vers = "1.0.1" # version number
+wht_sapi_vers = "20231015" # sub_api, for future development
 wht_rel_type = "ALPHA"
 
 # define wht funcs:
@@ -44,7 +43,7 @@ def wht_hello():
     wht_term()
     
 def wht_term():
-    wht_commands = ["hlp", "vers", "clr", "eof", "scrp"]
+    wht_commands = ["hlp", "vers", "clr", "exit", "scrp"]
     wht_l = "} "
     wht_input = (input(wht_l +""))
 
@@ -63,13 +62,23 @@ def wht_term():
         elif wht_input == "scrp":
             wht_run_script()
 
+        elif wht_input == "exit":
+            wht_input = input("    Exit y/n: ")
+            wht_exit_menu = ["y", "n"]
+            if wht_input in wht_exit_menu:
+                if wht_input == "y":
+                    exit()
+                elif wht_input == "n":
+                    wht_term()
+
     else:
         print(" Invalid command, type hlp for help.")
         wht_term()
 
 # wht commands ext:
 def wht_hlp():
-    print(" wht available commands: \n "
+    print(" \n 'wht' is in early stages of development."
+          " \n wht available commands: \n "
           " \n "
           "hlp - displays this help \n"
           " vers - displays wht version \n"
@@ -91,7 +100,7 @@ def wht_run_script():
 
                 if line == "#-wht_script":
                     print("   done. ")
-                elif line == "#-wht_one_run":
+                elif line == "#-wht_run":
                     exec(input("   Enter Python code to run: "))
                     wht_term()
                 else:
