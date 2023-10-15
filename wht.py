@@ -1,10 +1,18 @@
+'''wht - A Python program that emulates a 'terminal' within a terminal.
+    reynantlno, 2023. 
+    https://github.com/reynantlntno/wht
+    
+    under my project "gamma".
+    btw, this is generally nonsense for now, there is too much work needed here.'''
+
 import os
 import platform
-import math
+# import math -- maybe I should make a built-in calculator here...
+# import tkinter as tk -- gui? no, cli only.
 
 # wht version
 wht_vers = "1.0.0"
-wht_sapi_vers = "1.0.0"
+wht_sapi_vers = "1.0.0" # sub_api, for future development
 wht_rel_type = "ALPHA"
 
 # define wht funcs:
@@ -100,5 +108,7 @@ def wht_run_script():
 
 
 wht_plat_check()
+
+
 
 
