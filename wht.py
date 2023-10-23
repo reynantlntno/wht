@@ -101,7 +101,10 @@ def wht_run_script():
                 if line == "#-wht_script":
                     print("   done. ")
                 elif line == "#-wht_run":
-                    exec(input("   Enter Python code to run: "))
+                    exec(input("    ------------------------------------- \n"
+                               "    Note: Only supports one line of code. \n"
+                               "    ------------------------------------- \n"
+                               "    Enter Python code to run: "))
                     wht_term()
                 else:
                     print(f"   Unsupported: {line}")
